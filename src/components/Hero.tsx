@@ -6,16 +6,20 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden pt-[140px]"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image with Overlay */}
+      {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1920&q=80')",
-          }}
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1920&q=80"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
       </div>
 
@@ -25,19 +29,20 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="backdrop-blur-[2px]"
+          className="backdrop-blur-[1px] py-8"
         >
-          {/* Main Title */}
-          <h1 className="text-white font-serif text-5xl md:text-7xl lg:text-8xl font-light leading-tight mb-4 tracking-wider drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-            賑山亭
-          </h1>
-          
-          {/* Subtitle */}
-          <div className="mt-6 space-y-2">
-            <p className="text-white/95 text-sm md:text-base tracking-[0.3em] font-light drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
-              Towadako Shinzantei
-            </p>
-            <p className="text-white/90 text-base md:text-lg font-light leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] max-w-2xl mx-auto">
+          {/* Main Logo Image */}
+          <div className="mb-10 md:mb-14">
+            <img
+              src="/hero-logo.png"
+              alt="賑山亭 SHINZANTEI"
+              className="w-40 md:w-56 lg:w-72 mx-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]"
+            />
+          </div>
+
+          {/* Catchphrase / Tagline - Single Line */}
+          <div className="text-center">
+            <p className="text-white font-serif text-xl md:text-3xl lg:text-4xl font-medium tracking-[0.15em] drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)] leading-relaxed">
               十和田湖畔の静寂に佇む、和の癒し宿
             </p>
           </div>

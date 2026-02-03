@@ -1,23 +1,27 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { href: "#concept", label: "コンセプト" },
-  { href: "#facilities", label: "施設" },
-  { href: "#gallery", label: "ギャラリー" },
-  { href: "#access", label: "アクセス" },
-  { href: "#info", label: "基本情報" },
+  { href: "#facilities", label: "お風呂・温泉", enLabel: "Bath" },
+  { href: "#meal", label: "お食事", enLabel: "Meal" },
+  { href: "#rooms", label: "客室", enLabel: "Guest Room" },
+  { href: "#facility-guide", label: "館内案内", enLabel: "Facility" },
+  { href: "#sightseeing", label: "観光案内", enLabel: "Sightseeing" },
+  { href: "#access", label: "交通アクセス", enLabel: "Access" },
 ];
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      // Show header only when scrolled down > 0
+      setIsVisible(window.scrollY > 0);
     };
-    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -25,7 +29,7 @@ export default function Header() {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      const headerHeight = 100;
+      const headerHeight = 88; // Match the new header height
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
@@ -37,44 +41,52 @@ export default function Header() {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 border-b border-gray-100 ${
-        isScrolled ? "shadow-sm" : ""
-      }`}
-    >
-      <div className="container mx-auto px-6">
-        {/* Logo - Center */}
-        <div className="flex items-center justify-center py-4">
-          <a href="#home" onClick={(e) => handleClick(e, "#home")} className="cursor-pointer">
-            <div className="text-center">
-              <div className="text-xs md:text-sm text-brand-green tracking-wider mb-1 font-light">
-                とわだこ
-              </div>
-              <h1 className="text-2xl md:text-3xl font-serif text-brand-green font-normal tracking-wider">
-                賑山亭
-              </h1>
-              <div className="text-xs md:text-sm text-gray-500 tracking-wider mt-1 font-light">
-                Towadako Shinzantei
-              </div>
-            </div>
-          </a>
-        </div>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.header
+          initial={{ y: "-100%", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: "-100%", opacity: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="fixed top-0 left-0 right-0 z-50 h-16 md:h-[88px] flex items-center bg-black/35 backdrop-blur-[6px] border-b border-white/10"
+        >
+          <div className="container mx-auto px-4 md:px-8 flex items-center justify-center h-full relative">
+            {/* Navigation - Center (PC) */}
+            <nav className="hidden md:flex items-center gap-10 lg:gap-14">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleClick(e, item.href)}
+                  className="group flex flex-col items-center cursor-pointer relative py-2"
+                >
+                  <span className="text-white font-serif font-medium text-[16px] lg:text-[17px] tracking-[0.1em] leading-none mb-2 drop-shadow-md">
+                    {item.label}
+                  </span>
+                  <span className="text-white/70 font-serif text-[10px] lg:text-[11px] tracking-[0.05em] font-light leading-none uppercase group-hover:text-white transition-colors duration-300">
+                    {item.enLabel}
+                  </span>
 
-        {/* Navigation - Center */}
-        <nav className="flex items-center justify-center gap-6 md:gap-10 pb-4">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={(e) => handleClick(e, item.href)}
-              className="text-gray-800 text-sm md:text-base font-light tracking-wider relative group transition-opacity cursor-pointer"
-            >
-              {item.label}
-              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-brand-green transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
-        </nav>
-      </div>
-    </header>
+                  {/* Underline Animation */}
+                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white/80 transition-all duration-300 ease-out group-hover:w-full" />
+                </a>
+              ))}
+            </nav>
+
+            {/* Mobile Menu Button - Absolute Right (SP) */}
+            <div className="md:hidden absolute right-4">
+              <button
+                className="text-white p-2 focus:outline-none"
+                aria-label="Menu"
+              >
+                <div className="w-6 h-[1px] bg-white mb-1.5 shadow-sm"></div>
+                <div className="w-6 h-[1px] bg-white mb-1.5 shadow-sm"></div>
+                <div className="w-6 h-[1px] bg-white shadow-sm"></div>
+              </button>
+            </div>
+          </div>
+        </motion.header>
+      )}
+    </AnimatePresence>
   );
 }
