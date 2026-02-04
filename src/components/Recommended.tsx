@@ -78,7 +78,7 @@ function RecommendedItem({ item, index }: { item: typeof items[0], index: number
                     <h3 className="text-3xl md:text-[40px] font-serif font-medium mb-8 md:leading-tight">
                         {item.title}
                     </h3>
-                    <p className="text-lg md:text-[22px] leading-loose text-gray-800 font-light mb-12">
+                    <p className="text-lg md:text-[22px] leading-loose text-gray-800 font-light mb-12 font-serif">
                         {item.description}
                     </p>
                     <div className="text-center md:text-left">
