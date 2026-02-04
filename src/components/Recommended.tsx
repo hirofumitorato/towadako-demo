@@ -101,7 +101,7 @@ function RecommendedItem({ item, index }: { item: typeof items[0], index: number
             >
                 <div className="relative w-full aspect-[4/3] overflow-hidden rounded-sm shadow-lg bg-gray-50">
                     {item.images.length > 1 ? (
-                        <TileFlipImage images={item.images} />
+                        <CrossFadeImage images={item.images} />
                     ) : (
                         <div
                             className="absolute inset-0 w-full h-full bg-cover bg-center"
@@ -114,133 +114,31 @@ function RecommendedItem({ item, index }: { item: typeof items[0], index: number
     );
 }
 
-// Tile Flip Component
-const ROWS = 6;
-const COLS = 8;
-
-function TileFlipImage({ images }: { images: string[] }) {
+// Cross Fade Component
+function CrossFadeImage({ images }: { images: string[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [nextIndex, setNextIndex] = useState(1);
-    const [isFlipping, setIsFlipping] = useState(false);
-
-    // Using a key relative to the current transition allows us to remount/reset the grid cleanly
-    const [flipKey, setFlipKey] = useState(0);
 
     useEffect(() => {
+        if (images.length <= 1) return;
         const timer = setInterval(() => {
-            if (!isFlipping) {
-                triggerFlip();
-            }
-        }, 8000); // Slower interval
+            setCurrentIndex((prev) => (prev + 1) % images.length);
+        }, 6000);
         return () => clearInterval(timer);
-    }, [currentIndex, isFlipping]);
-
-    const triggerFlip = () => {
-        setIsFlipping(true);
-        const next = (currentIndex + 1) % images.length;
-        setNextIndex(next);
-        setFlipKey(prev => prev + 1);
-
-        // Increased wait time for slower animation
-        setTimeout(() => {
-            setCurrentIndex(next);
-            setIsFlipping(false);
-        }, 3500);
-    };
-
-    const currentImg = images[currentIndex];
-    const nextImg = images[nextIndex];
-
-    // Generate tiles
-    const tiles = [];
-    for (let r = 0; r < ROWS; r++) {
-        for (let c = 0; c < COLS; c++) {
-            tiles.push({ r, c });
-        }
-    }
+    }, [images.length]);
 
     return (
-        <div className="relative w-full h-full cursor-pointer" onClick={!isFlipping ? triggerFlip : undefined}>
-            {/* Background Image (Current State) */}
-            <div
-                className="absolute inset-0 w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url('${currentImg}')` }}
-            />
-
-            {/* Flip Grid */}
-            {isFlipping && (
-                <div
-                    key={flipKey}
-                    className="absolute inset-0 w-full h-full perspective-1000 z-10 grid"
-                    style={{
-                        gridTemplateColumns: `repeat(${COLS}, 1fr)`,
-                        gridTemplateRows: `repeat(${ROWS}, 1fr)`
-                    }}
-                >
-                    {tiles.map((tile) => {
-                        // Animation order: Bottom-Right to Top-Left
-                        const dist = (ROWS - 1 - tile.r) + (COLS - 1 - tile.c);
-                        const delay = dist * 0.08; // Slower wave effect (80ms per step)
-
-                        return (
-                            <div key={`${tile.r}-${tile.c}`} className="relative w-full h-full" style={{ transformStyle: "preserve-3d" }}>
-                                <motion.div
-                                    className="w-full h-full relative"
-                                    style={{ transformStyle: "preserve-3d" }}
-                                    initial={{ rotateY: 0 }}
-                                    animate={{ rotateY: 180 }}
-                                    transition={{
-                                        duration: 1.5, // Slow flip duration
-                                        delay: delay,
-                                        ease: "easeInOut"
-                                    }}
-                                >
-                                    {/* Front Face: Current Image */}
-                                    <div
-                                        className="absolute inset-0 overflow-hidden"
-                                        style={{
-                                            backfaceVisibility: "hidden",
-                                            WebkitBackfaceVisibility: "hidden"
-                                        }}
-                                    >
-                                        <div
-                                            className="absolute bg-cover bg-center"
-                                            style={{
-                                                backgroundImage: `url('${currentImg}')`,
-                                                width: `${COLS * 100}%`,
-                                                height: `${ROWS * 100}%`,
-                                                left: `-${tile.c * 100}%`,
-                                                top: `-${tile.r * 100}%`
-                                            }}
-                                        />
-                                    </div>
-
-                                    {/* Back Face: Next Image */}
-                                    <div
-                                        className="absolute inset-0 overflow-hidden"
-                                        style={{
-                                            transform: "rotateY(180deg)",
-                                            backfaceVisibility: "hidden",
-                                            WebkitBackfaceVisibility: "hidden"
-                                        }}
-                                    >
-                                        <div
-                                            className="absolute bg-cover bg-center"
-                                            style={{
-                                                backgroundImage: `url('${nextImg}')`,
-                                                width: `${COLS * 100}%`,
-                                                height: `${ROWS * 100}%`,
-                                                left: `-${tile.c * 100}%`,
-                                                top: `-${tile.r * 100}%`
-                                            }}
-                                        />
-                                    </div>
-                                </motion.div>
-                            </div>
-                        );
-                    })}
-                </div>
-            )}
+        <div className="relative w-full h-full overflow-hidden bg-gray-50">
+            <AnimatePresence initial={false}>
+                <motion.div
+                    key={currentIndex}
+                    className="absolute inset-0 w-full h-full bg-cover bg-center"
+                    style={{ backgroundImage: `url('${images[currentIndex]}')` }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1.5, ease: "easeInOut" }}
+                />
+            </AnimatePresence>
         </div>
     );
 }
