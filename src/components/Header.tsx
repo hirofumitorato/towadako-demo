@@ -56,7 +56,7 @@ export default function Header() {
         >
           <div className="container mx-auto px-4 md:px-8 flex items-center justify-center h-full relative">
             {/* Logo - Absolute Left */}
-            <Link href="/" className="absolute left-4 md:-left-2 top-1/2 -translate-y-1/2 z-20 hover:opacity-80 transition-opacity">
+            <Link href="/" className="absolute left-4 md:-left-8 top-1/2 -translate-y-1/2 z-20 hover:opacity-80 transition-opacity">
               <img src="/images/logo_header_final.png" alt="賑山亭" className="h-12 md:h-20 w-auto object-contain" />
             </Link>
 
