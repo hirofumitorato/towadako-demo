@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import Link from "next/link";
+
 const navItems = [
-  { href: "#facilities", label: "お風呂・温泉", enLabel: "Bath" },
-  { href: "#meal", label: "お食事", enLabel: "Meal" },
+  { href: "/bath", label: "お風呂・温泉", enLabel: "Bath" },
+  { href: "/meal", label: "お食事", enLabel: "Meal" },
   { href: "#rooms", label: "客室", enLabel: "Guest Room" },
   { href: "#facility-guide", label: "館内案内", enLabel: "Facility" },
-  { href: "#sightseeing", label: "観光案内", enLabel: "Sightseeing" },
+  { href: "/sightseeing", label: "観光案内", enLabel: "Sightseeing" },
   { href: "#access", label: "交通アクセス", enLabel: "Access" },
 ];
 
@@ -26,17 +28,19 @@ export default function Header() {
   }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      const headerHeight = 88; // Match the new header height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        const headerHeight = 88; // Match the new header height
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
     }
   };
 
@@ -51,10 +55,15 @@ export default function Header() {
           className="fixed top-0 left-0 right-0 z-50 h-16 md:h-[88px] flex items-center bg-black/35 backdrop-blur-[6px] border-b border-white/10"
         >
           <div className="container mx-auto px-4 md:px-8 flex items-center justify-center h-full relative">
+            {/* Logo - Absolute Left */}
+            <Link href="/" className="absolute left-4 md:-left-20 top-1/2 -translate-y-1/2 z-20 hover:opacity-80 transition-opacity">
+              <img src="/images/logo_header_final.png" alt="賑山亭" className="h-12 md:h-20 w-auto object-contain" />
+            </Link>
+
             {/* Navigation - Center (PC) */}
             <nav className="hidden md:flex items-center gap-10 lg:gap-14">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleClick(e, item.href)}
@@ -69,7 +78,7 @@ export default function Header() {
 
                   {/* Underline Animation */}
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white/80 transition-all duration-300 ease-out group-hover:w-full" />
-                </a>
+                </Link>
               ))}
             </nav>
 

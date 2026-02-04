@@ -32,7 +32,7 @@ export default function Hero() {
           className="backdrop-blur-[1px] py-8"
         >
           {/* Main Logo Image */}
-          <div className="mb-10 md:mb-14">
+          <div className="mb-6 md:mb-8">
             <img
               src="/hero-logo.png"
               alt="賑山亭 SHINZANTEI"
@@ -40,10 +40,20 @@ export default function Hero() {
             />
           </div>
 
-          {/* Catchphrase / Tagline - Single Line */}
+          {/* Name Readings (Romaji) */}
+          <div className="text-center mb-12 md:mb-16">
+            <p className="text-white text-xl md:text-2xl font-serif tracking-[0.3em] font-medium drop-shadow-md">
+              SHINZANTEI
+            </p>
+          </div>
+
+          {/* Catchphrase / Tagline */}
           <div className="text-center">
-            <p className="text-white font-serif text-xl md:text-3xl lg:text-4xl font-medium tracking-[0.15em] drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)] leading-relaxed">
+            <p className="text-white font-serif text-xl md:text-3xl lg:text-4xl font-medium tracking-[0.15em] drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)] leading-relaxed mb-4">
               十和田湖畔の静寂に佇む、和の癒し宿
+            </p>
+            <p className="text-white/90 font-serif text-sm md:text-lg tracking-[0.1em] font-light drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              A healing Japanese inn nestled in the silence of Lake Towada
             </p>
           </div>
         </motion.div>
