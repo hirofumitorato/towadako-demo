@@ -34,8 +34,22 @@ export default function Access() {
           className="text-center mb-12"
         >
           <div className="inline-block relative">
-            <div className="w-96 h-96 border border-gray-300 rounded-full flex items-center justify-center bg-white/40 backdrop-blur-[1px]">
-              <h2 className="text-3xl md:text-4xl font-serif font-light tracking-wider">
+            {/* Decoration: Organic Flow/Leaves */}
+            <div className="absolute -inset-12 pointer-events-none opacity-40">
+              <svg viewBox="0 0 200 200" className="w-full h-full text-[#5CA042] animate-pulse-slow">
+                <path fill="none" stroke="currentColor" strokeWidth="1" d="M100,0 Q130,20 150,50 T180,100 T150,150 T100,180 T50,150 T20,100 T50,50 T100,0" strokeDasharray="4 4" />
+                {/* Simulated Leaves/Water flow */}
+                <path d="M40,40 Q60,10 90,30" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                <path d="M160,40 Q140,10 110,30" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                <path d="M40,160 Q60,190 90,170" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                <path d="M160,160 Q140,190 110,170" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="20" cy="100" r="2" fill="currentColor" />
+                <circle cx="180" cy="100" r="2" fill="currentColor" />
+              </svg>
+            </div>
+
+            <div className="w-96 h-96 border border-[#5CA042] rounded-full flex items-center justify-center bg-white/40 backdrop-blur-[1px] relative z-10">
+              <h2 className="text-3xl md:text-4xl font-serif font-light tracking-wider text-[#5CA042]">
                 アクセス
               </h2>
             </div>
@@ -51,14 +65,14 @@ export default function Access() {
         >
           <div className="relative w-full aspect-video rounded-sm overflow-hidden border border-gray-200">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.1234567890123!2d140.85!3d40.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI3JzAwLjAiTiAxNDDCsDUxJzAwLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+              src="https://maps.google.com/maps?q=40.423591,140.894815&z=15&output=embed&hl=ja"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 grayscale contrast-[0.9] opacity-90 transition-all hover:grayscale-0 hover:opacity-100"
+              className="absolute inset-0 transition-all hover:opacity-100"
             />
           </div>
         </motion.div>
@@ -82,9 +96,9 @@ export default function Access() {
             <p className="text-gray-700 font-light">JR青森駅より車で約45分</p>
           </div>
 
-          <button className="mt-10 px-8 py-2.5 border border-gray-300 rounded-sm text-sm hover:border-brand-green hover:text-brand-green transition-colors duration-300 font-light tracking-wider bg-white">
+          <a href="https://maps.google.com/?q=40.423591,140.894815" target="_blank" rel="noopener noreferrer" className="inline-block mt-10 px-12 py-4 border border-[#5CA042] text-[#5CA042] text-lg tracking-widest hover:bg-[#5CA042] hover:text-white transition-all duration-300 rounded-sm font-light bg-white">
             詳細
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>
