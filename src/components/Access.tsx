@@ -90,11 +90,7 @@ export default function Access() {
             <p className="text-gray-500 text-sm mb-4 font-light tracking-wider">TEL : 0176-75-2711 ／ FAX : 0176-75-2688</p>
           </div>
 
-          <div className="space-y-4 text-left max-w-md mx-auto">
-            <p className="text-gray-700 font-light border-b border-gray-100 pb-2">JRバス十和田湖駅（休屋）より徒歩4〜5分</p>
-            <p className="text-gray-700 font-light border-b border-gray-100 pb-2">東北自動車道 小坂ICより車で約40分</p>
-            <p className="text-gray-700 font-light">東北自動車道 十和田ICより車で約45分</p>
-          </div>
+
 
           <Link href="/access" className="inline-block mt-10 px-12 py-4 border border-[#5CA042] text-[#5CA042] text-lg tracking-widest hover:bg-[#5CA042] hover:text-white transition-all duration-300 rounded-sm font-light bg-white">
             詳細
