@@ -82,15 +82,40 @@ export default function AccessPage() {
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <div className="w-full overflow-hidden">
+                    <h2 className="text-3xl md:text-4xl font-serif text-[#006400] mb-12 flex flex-col items-center">
+                        <span>お車でお越しの方</span>
+                        <span className="w-16 h-0.5 bg-[#006400] mt-6"></span>
+                    </h2>
+
+                    <div className="w-full overflow-hidden mb-12">
                         <Image
-                            src="/images/access/car.png"
+                            src="/images/access/car_diagram.png"
                             alt="お車でのアクセス図"
                             width={0}
                             height={0}
                             sizes="100vw"
                             style={{ width: '100%', height: 'auto' }}
                         />
+                    </div>
+
+                    {/* Parking Info */}
+                    <div className="max-w-5xl mx-auto border-t border-gray-300 pt-8 flex flex-col md:flex-row gap-8 md:gap-16 text-left">
+                        <div className="flex-1">
+                            <p className="text-gray-800 font-serif leading-loose">
+                                当館正面駐車場、および当館に向かって右側の駐車スペースをご利用ください。
+                            </p>
+                        </div>
+                        <div className="flex-1">
+                            <dl className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-6 font-serif">
+                                <dt className="text-gray-800 font-medium">駐車場</dt>
+                                <dd className="text-gray-700">有り（無料）</dd>
+
+                                <dt className="text-gray-800 font-medium whitespace-nowrap">ご注意</dt>
+                                <dd className="text-gray-700 text-sm leading-relaxed">
+                                    ※普通車以外のお車を駐車ご希望の場合は予めご相談ください。
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
                 </motion.div>
 
