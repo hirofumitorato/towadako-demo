@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 export default function Rooms() {
   const ref = useRef(null);
@@ -34,50 +35,46 @@ export default function Rooms() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col md:flex-row items-center gap-12"
+          className="text-center mb-16"
         >
-          {/* Left: Text with Circle */}
-          <div className="flex-1 flex items-center justify-end">
-            <div className="relative">
-              {/* Decorative Circle Background */}
-              <div className="absolute inset-0 rounded-full border border-brand-green/10 transform scale-125 pointer-events-none" />
-              <div className="w-80 h-80 md:w-96 md:h-96 border border-gray-300 rounded-full flex items-center justify-center bg-white/50 backdrop-blur-[2px]">
-                <div className="writing-vertical-rl text-3xl md:text-4xl font-serif font-light tracking-wider text-center text-gray-800">
-                  お部屋の<br />ご紹介
-                </div>
-              </div>
+          <div className="inline-block relative">
+            <div className="w-96 h-96 border border-gray-300 rounded-full flex items-center justify-center">
+              <h2 className="text-3xl md:text-4xl font-serif font-light tracking-wider">
+                お部屋
+              </h2>
             </div>
           </div>
-
-          {/* Right: Description */}
-          <div className="flex-1">
-            <div className="bg-white/80 backdrop-blur-[4px] p-8 md:p-12 rounded-sm border-l-2 border-brand-green/20">
-              <p className="text-base md:text-lg leading-relaxed text-gray-700 font-light mb-0">
-                十和田湖の美しい自然に囲まれた静かな環境で、伝統的な和の心と現代的な快適さを融合させた特別な滞在体験をお届けします。
-                四季折々の風景と共に、心身ともにリフレッシュできる時間をお過ごしください。
-              </p>
-            </div>
-          </div>
+          <p className="mt-8 max-w-2xl mx-auto text-gray-600 leading-relaxed font-light text-sm">
+            十和田湖の美しい自然に囲まれた静かな環境で、特別な滞在体験をお届けします。<br />
+            四季折々の風景と共に、心身ともにリフレッシュできる時間をお過ごしください。
+          </p>
         </motion.div>
 
-        {/* Room Image */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="max-w-4xl mx-auto"
         >
-          <div className="relative w-full aspect-[16/9] overflow-hidden rounded-sm shadow-sm group">
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.02]"
-              style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1920&q=80')",
-              }}
-            />
-            {/* Optional Overlay Text on Image */}
-            <div className="absolute bottom-0 right-0 bg-white/90 px-6 py-2 m-4 text-xs tracking-widest text-gray-600 font-serif">
-              LAKE VIEW SUITE
-            </div>
+          <div className="group relative bg-white rounded-sm shadow-md overflow-hidden cursor-pointer">
+            <Link href="/rooms/japanese-10-tatami">
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: "url('/images/rooms/exterior.png')" }}
+                />
+                <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:opacity-0" />
+              </div>
+              <div className="p-8 text-center bg-white relative z-10 transition-colors duration-300 group-hover:bg-[#fcfaf7]">
+                <h3 className="text-2xl font-serif font-light mb-4">和室10畳</h3>
+                <p className="text-gray-600 font-light text-sm mb-6">
+                  初対面でもどこか懐かしい...そんな居心地の良さが感じられる客室です。
+                </p>
+                <span className="inline-block px-8 py-2 border border-brand-green text-brand-green font-light tracking-widest group-hover:bg-brand-green group-hover:text-white transition-all duration-300 text-sm">
+                  詳細
+                </span>
+              </div>
+            </Link>
           </div>
         </motion.div>
       </div>
