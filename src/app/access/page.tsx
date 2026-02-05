@@ -127,19 +127,18 @@ export default function AccessPage() {
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <h2 className="text-3xl md:text-4xl font-serif text-[#006400] mb-12 flex flex-col items-center">
+                    <h2 className="text-3xl md:text-4xl font-serif text-[#006400] mb-8 flex flex-col items-center">
                         <span>電車・バスでお越しの方</span>
                         <span className="w-16 h-0.5 bg-[#006400] mt-6"></span>
                     </h2>
 
-                    <div className="w-full overflow-hidden mb-12">
+                    <div className="w-full relative overflow-hidden aspect-[2.4/1] mb-8">
                         <Image
                             src="/images/access/train_bus.png"
                             alt="電車・バスでのアクセス図"
-                            width={0}
-                            height={0}
+                            fill
                             sizes="100vw"
-                            style={{ width: '100%', height: 'auto' }}
+                            className="object-cover object-top"
                         />
                     </div>
 
@@ -159,19 +158,18 @@ export default function AccessPage() {
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <h2 className="text-3xl md:text-4xl font-serif text-[#006400] mb-12 flex flex-col items-center">
+                    <h2 className="text-3xl md:text-4xl font-serif text-[#006400] mb-8 flex flex-col items-center">
                         <span>飛行機をご利用の方</span>
                         <span className="w-16 h-0.5 bg-[#006400] mt-6"></span>
                     </h2>
 
-                    <div className="w-full overflow-hidden mb-12">
+                    <div className="w-full relative overflow-hidden aspect-[2.4/1] mb-8">
                         <Image
                             src="/images/access/flight.png"
                             alt="飛行機でのアクセス図"
-                            width={0}
-                            height={0}
+                            fill
                             sizes="100vw"
-                            style={{ width: '100%', height: 'auto' }}
+                            className="object-cover object-top"
                         />
                     </div>
 
