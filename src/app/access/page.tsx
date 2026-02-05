@@ -132,13 +132,13 @@ export default function AccessPage() {
                         <span className="w-16 h-0.5 bg-[#006400] mt-6"></span>
                     </h2>
 
-                    <div className="w-full relative overflow-hidden aspect-[2.4/1] mb-8">
+                    <div className="w-full relative overflow-hidden aspect-[3/1] mb-8">
                         <Image
                             src="/images/access/train_bus.png"
                             alt="電車・バスでのアクセス図"
                             fill
                             sizes="100vw"
-                            className="object-cover object-top"
+                            className="object-cover object-center"
                         />
                     </div>
 
@@ -163,13 +163,13 @@ export default function AccessPage() {
                         <span className="w-16 h-0.5 bg-[#006400] mt-6"></span>
                     </h2>
 
-                    <div className="w-full relative overflow-hidden aspect-[2.4/1] mb-8">
+                    <div className="w-full relative overflow-hidden aspect-[3/1] mb-8">
                         <Image
                             src="/images/access/flight.png"
                             alt="飛行機でのアクセス図"
                             fill
                             sizes="100vw"
-                            className="object-cover object-top"
+                            className="object-cover object-center"
                         />
                     </div>
 
