@@ -1,7 +1,5 @@
 import Hero from "@/components/Hero";
-import Concept from "@/components/Concept";
-import Features from "@/components/Features";
-import CircleNav from "@/components/CircleNav";
+
 import Rooms from "@/components/Rooms";
 import SurroundingMap from "@/components/SurroundingMap";
 import Gallery from "@/components/Gallery";
@@ -14,9 +12,6 @@ export default function Home() {
     <>
       <Hero />
       <Recommended />
-      {/* <Concept /> */}
-      {/* <Features /> */}
-      <CircleNav />
       <Rooms />
       <SurroundingMap />
       <Gallery />
