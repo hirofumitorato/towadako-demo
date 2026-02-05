@@ -65,7 +65,7 @@ export default function Access() {
         >
           <div className="relative w-full aspect-video rounded-sm overflow-hidden border border-gray-200">
             <iframe
-              src="https://maps.google.com/maps?q=40.423591,140.894815&z=15&output=embed&hl=ja"
+              src="https://maps.google.com/maps?q=とわだこ賑山亭&z=9&output=embed&hl=ja"
               width="100%"
               height="100%"
               style={{ border: 0 }}
