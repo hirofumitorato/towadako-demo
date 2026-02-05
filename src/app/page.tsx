@@ -1,7 +1,5 @@
 import Hero from "@/components/Hero";
-
 import Rooms from "@/components/Rooms";
-import SurroundingMap from "@/components/SurroundingMap";
 import Gallery from "@/components/Gallery";
 import Access from "@/components/Access";
 import BasicInfo from "@/components/BasicInfo";
@@ -13,7 +11,6 @@ export default function Home() {
       <Hero />
       <Recommended />
       <Rooms />
-      <SurroundingMap />
       <Gallery />
       <Access />
       <BasicInfo />
