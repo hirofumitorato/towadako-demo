@@ -85,9 +85,9 @@ export default function Access() {
           className="max-w-2xl mx-auto text-center bg-white/70 backdrop-blur-sm p-8 rounded-sm"
         >
           <div className="mb-8">
-            <h3 className="text-2xl font-serif font-light mb-4">賑山亭</h3>
-            <p className="text-gray-700 mb-2 font-light">〒018-5511 秋田県鹿角郡小坂町十和田湖休平35</p>
-            <p className="text-gray-500 text-sm mb-4 font-light tracking-wider">TEL : 0176-75-2711 ／ FAX : 0176-75-2688</p>
+            <h3 className="text-3xl md:text-4xl font-serif font-light mb-6">賑山亭</h3>
+            <p className="text-gray-700 mb-4 font-light text-lg md:text-xl">〒018-5511 秋田県鹿角郡小坂町十和田湖休平35</p>
+            <p className="text-gray-600 text-base md:text-lg mb-4 font-light tracking-wider">TEL : 0176-75-2711 ／ FAX : 0176-75-2688</p>
           </div>
 
 
