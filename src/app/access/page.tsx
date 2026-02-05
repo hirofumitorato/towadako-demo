@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AccessPage() {
     return (
-        <main className="min-h-screen bg-white">
+        <main className="min-h-screen bg-[#FDFBF7]">
             {/* Hero Section */}
             <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -33,8 +34,19 @@ export default function AccessPage() {
                 </div>
             </section>
 
+            {/* Breadcrumb */}
+            <section className="py-8 bg-[#FDFBF7]">
+                <div className="container mx-auto px-4 text-center">
+                    <p className="font-serif text-gray-500 tracking-wider">
+                        <Link href="/" className="hover:text-[#5CA042] transition-colors">ホーム</Link>
+                        <span className="mx-4">＞</span>
+                        <span>交通アクセス</span>
+                    </p>
+                </div>
+            </section>
+
             {/* Access Content */}
-            <section className="py-24 px-4 md:px-8 max-w-5xl mx-auto space-y-32">
+            <section className="py-16 px-4 md:px-8 max-w-5xl mx-auto space-y-24">
 
                 {/* Google Map Section */}
                 <motion.div
@@ -48,7 +60,7 @@ export default function AccessPage() {
                         <span>周辺地図</span>
                         <span className="w-16 h-0.5 bg-[#5CA042] mt-6"></span>
                     </h2>
-                    <div className="w-full aspect-video rounded-sm overflow-hidden shadow-lg border border-gray-200">
+                    <div className="w-full max-w-4xl mx-auto aspect-video rounded-sm overflow-hidden shadow-lg border border-gray-200">
                         <iframe
                             src="https://maps.google.com/maps?q=とわだこ賑山亭&z=14&output=embed&hl=ja"
                             width="100%"
@@ -70,11 +82,7 @@ export default function AccessPage() {
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <h2 className="text-3xl md:text-4xl font-serif text-[#006400] mb-12 flex flex-col items-center">
-                        <span>お車で起こしの方</span>
-                        <span className="w-16 h-0.5 bg-[#006400] mt-6"></span>
-                    </h2>
-                    <div className="relative w-full aspect-[16/9] md:aspect-[2/1] bg-white rounded-sm shadow-sm overflow-hidden">
+                    <div className="relative w-full max-w-4xl mx-auto aspect-[16/9] bg-white rounded-sm shadow-sm overflow-hidden border border-gray-100">
                         <Image
                             src="/images/access/car.png"
                             alt="お車でのアクセス図"
@@ -92,11 +100,7 @@ export default function AccessPage() {
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <h2 className="text-3xl md:text-4xl font-serif text-[#006400] mb-12 flex flex-col items-center">
-                        <span>電車・バスでお越しの方</span>
-                        <span className="w-16 h-0.5 bg-[#006400] mt-6"></span>
-                    </h2>
-                    <div className="relative w-full aspect-[16/9] md:aspect-[2/1] bg-white rounded-sm shadow-sm overflow-hidden">
+                    <div className="relative w-full max-w-4xl mx-auto aspect-[16/9] bg-white rounded-sm shadow-sm overflow-hidden border border-gray-100">
                         <Image
                             src="/images/access/train_bus.png"
                             alt="電車・バスでのアクセス図"
@@ -114,11 +118,7 @@ export default function AccessPage() {
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <h2 className="text-3xl md:text-4xl font-serif text-[#006400] mb-12 flex flex-col items-center">
-                        <span>飛行機をご利用の方</span>
-                        <span className="w-16 h-0.5 bg-[#006400] mt-6"></span>
-                    </h2>
-                    <div className="relative w-full aspect-[16/9] md:aspect-[2/1] bg-white rounded-sm shadow-sm overflow-hidden">
+                    <div className="relative w-full max-w-4xl mx-auto aspect-[16/9] bg-white rounded-sm shadow-sm overflow-hidden border border-gray-100">
                         <Image
                             src="/images/access/flight.png"
                             alt="飛行機でのアクセス図"
