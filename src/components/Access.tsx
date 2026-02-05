@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-
+import Link from "next/link";
 export default function Access() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -96,9 +96,9 @@ export default function Access() {
             <p className="text-gray-700 font-light">JR青森駅より車で約45分</p>
           </div>
 
-          <a href="https://maps.google.com/?q=40.423591,140.894815" target="_blank" rel="noopener noreferrer" className="inline-block mt-10 px-12 py-4 border border-[#5CA042] text-[#5CA042] text-lg tracking-widest hover:bg-[#5CA042] hover:text-white transition-all duration-300 rounded-sm font-light bg-white">
+          <Link href="/access" className="inline-block mt-10 px-12 py-4 border border-[#5CA042] text-[#5CA042] text-lg tracking-widest hover:bg-[#5CA042] hover:text-white transition-all duration-300 rounded-sm font-light bg-white">
             詳細
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

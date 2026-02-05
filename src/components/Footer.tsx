@@ -1,12 +1,12 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#222] text-white py-16">
+    <footer className="bg-[#5CA042] text-white py-16">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Left: Logo */}
           <div>
-            <h3 className="text-2xl font-serif mb-2">新山亭</h3>
-            <p className="text-sm text-gray-400 tracking-wider">Towadako Shinzantei</p>
+            <h3 className="text-2xl font-serif mb-2">賑山亭</h3>
+            <p className="text-sm text-white/80 tracking-wider">Towadako Shinzantei</p>
           </div>
 
           {/* Center: Address */}
@@ -24,8 +24,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-gray-700 pt-8 text-center">
-          <p className="text-xs text-gray-500">
+        <div className="border-t border-white/20 pt-8 text-center">
+          <p className="text-xs text-white/60">
             © {new Date().getFullYear()} Towadako Shinzantei. All rights reserved.
           </p>
         </div>
