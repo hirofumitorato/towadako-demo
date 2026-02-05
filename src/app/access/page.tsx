@@ -132,13 +132,14 @@ export default function AccessPage() {
                         <span className="w-16 h-0.5 bg-[#006400] mt-6"></span>
                     </h2>
 
-                    <div className="w-full relative overflow-hidden aspect-[3/1] mb-8">
+                    <div className="w-full overflow-hidden mb-8">
                         <Image
-                            src="/images/access/train_bus.png"
+                            src="/images/access/train_bus_diagram.png"
                             alt="電車・バスでのアクセス図"
-                            fill
+                            width={0}
+                            height={0}
                             sizes="100vw"
-                            className="object-cover object-center"
+                            style={{ width: '100%', height: 'auto' }}
                         />
                     </div>
 
@@ -146,37 +147,6 @@ export default function AccessPage() {
                         <p className="text-gray-800 font-serif text-lg md:text-xl leading-loose font-medium">
                             ◎バスは全便、ＪＲバス十和田湖駅（休屋）終点にて下車。徒歩４〜５分です。<br />
                             ご到着時、お電話いただければお迎えも致します。（１５：００〜１８：００の間）
-                        </p>
-                    </div>
-                </motion.div>
-
-                {/* Flight Access */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center"
-                >
-                    <h2 className="text-3xl md:text-4xl font-serif text-[#006400] mb-8 flex flex-col items-center">
-                        <span>飛行機をご利用の方</span>
-                        <span className="w-16 h-0.5 bg-[#006400] mt-6"></span>
-                    </h2>
-
-                    <div className="w-full relative overflow-hidden aspect-[3/1] mb-8">
-                        <Image
-                            src="/images/access/flight.png"
-                            alt="飛行機でのアクセス図"
-                            fill
-                            sizes="100vw"
-                            className="object-cover object-center"
-                        />
-                    </div>
-
-                    <div className="max-w-4xl mx-auto bg-[#E8E4D9] rounded-xl p-6 md:p-10 shadow-sm">
-                        <p className="text-gray-800 font-serif text-lg md:text-xl leading-loose font-medium">
-                            最寄りの空港（青森空港、三沢空港、大館能代空港）より<br />
-                            レンタカーまたは各種交通機関をご利用ください。
                         </p>
                     </div>
                 </motion.div>
