@@ -46,7 +46,7 @@ export default function AccessPage() {
             </section>
 
             {/* Access Content */}
-            <section className="py-16 px-4 md:px-8 max-w-6xl mx-auto space-y-24">
+            <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto space-y-24">
 
                 {/* Google Map Section */}
                 <motion.div
@@ -82,12 +82,14 @@ export default function AccessPage() {
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <div className="relative w-full aspect-[16/9] bg-white overflow-hidden">
+                    <div className="w-full overflow-hidden">
                         <Image
                             src="/images/access/car.png"
                             alt="お車でのアクセス図"
-                            fill
-                            className="object-contain"
+                            width={0}
+                            height={0}
+                            sizes="100vw"
+                            style={{ width: '100%', height: 'auto' }}
                         />
                     </div>
                 </motion.div>
@@ -100,12 +102,14 @@ export default function AccessPage() {
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <div className="relative w-full aspect-[16/9] bg-white overflow-hidden">
+                    <div className="w-full overflow-hidden">
                         <Image
                             src="/images/access/train_bus.png"
                             alt="電車・バスでのアクセス図"
-                            fill
-                            className="object-contain"
+                            width={0}
+                            height={0}
+                            sizes="100vw"
+                            style={{ width: '100%', height: 'auto' }}
                         />
                     </div>
                 </motion.div>
@@ -118,12 +122,14 @@ export default function AccessPage() {
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <div className="relative w-full aspect-[16/9] bg-white overflow-hidden">
+                    <div className="w-full overflow-hidden">
                         <Image
                             src="/images/access/flight.png"
                             alt="飛行機でのアクセス図"
-                            fill
-                            className="object-contain"
+                            width={0}
+                            height={0}
+                            sizes="100vw"
+                            style={{ width: '100%', height: 'auto' }}
                         />
                     </div>
                 </motion.div>
