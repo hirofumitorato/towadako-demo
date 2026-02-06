@@ -56,28 +56,27 @@ export default function Rooms() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-6xl mx-auto"
         >
-          <div className="group relative bg-white rounded-sm shadow-md overflow-hidden">
-            <Link href="/rooms/japanese-10-tatami">
-              <div className="relative aspect-[16/9] w-full overflow-hidden">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: "url('/images/rooms/exterior_large.jpg')" }}
-                />
-                <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:opacity-0" />
-              </div>
-
-              <div className="p-10 text-center bg-white relative z-10 transition-colors duration-300 group-hover:bg-[#fcfaf7]">
-                <h3 className="text-3xl font-serif font-light mb-6">和室10畳</h3>
-                <p className="text-gray-600 font-light text-base mb-10 leading-relaxed">
-                  初対面でもどこか懐かしい...そんな居心地の良さが感じられる客室です。
-                </p>
-
-                <div className="flex justify-center">
-                  <span className="inline-block px-10 py-3 border border-brand-green text-brand-green font-light tracking-widest group-hover:bg-brand-green group-hover:text-white transition-all duration-300 text-base">
-                    詳細
-                  </span>
+          <div className="flex flex-col items-center">
+            <motion.div
+              className="group relative bg-white rounded-sm shadow-md overflow-hidden max-w-6xl w-full mb-12"
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Link href="/rooms/japanese-10-tatami">
+                <div className="relative aspect-[16/9] w-full overflow-hidden">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                    style={{ backgroundImage: "url('/images/rooms/exterior_cropped.png')" }}
+                  />
+                  <div className="absolute inset-0 bg-black/5 transition-opacity duration-300 group-hover:opacity-0" />
                 </div>
-              </div>
+              </Link>
+            </motion.div>
+
+            <Link href="/rooms/japanese-10-tatami">
+              <span className="inline-block px-12 py-4 border border-brand-green text-brand-green font-light tracking-widest text-lg hover:bg-brand-green hover:text-white transition-all duration-300 bg-transparent">
+                詳しく見る
+              </span>
             </Link>
           </div>
         </motion.div>
