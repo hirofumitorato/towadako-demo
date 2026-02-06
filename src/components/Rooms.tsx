@@ -44,7 +44,7 @@ export default function Rooms() {
               </h2>
             </div>
           </div>
-          <p className="mt-8 max-w-2xl mx-auto text-gray-600 leading-relaxed font-light text-sm">
+          <p className="mt-12 max-w-4xl mx-auto text-lg md:text-[22px] leading-loose text-gray-800 font-light font-serif">
             十和田湖の美しい自然に囲まれた静かな環境で、特別な滞在体験をお届けします。<br />
             四季折々の風景と共に、心身ともにリフレッシュできる時間をお過ごしください。
           </p>
