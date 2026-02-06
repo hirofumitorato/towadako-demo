@@ -38,21 +38,8 @@ export default function Rooms() {
           className="text-center mb-16"
         >
           <div className="inline-block relative">
-            {/* Decoration: Zen/Calm motif (Green-based, slightly different from Access) */}
-            <div className="absolute -inset-8 pointer-events-none opacity-30">
-              <svg viewBox="0 0 200 200" className="w-full h-full text-[#5CA042]">
-                {/* Outer loose dashed ring */}
-                <circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="8 8" />
-                {/* Inner accents (Cardinal marks) */}
-                <path d="M100,5 L100,25" stroke="currentColor" strokeWidth="1" />
-                <path d="M100,175 L100,195" stroke="currentColor" strokeWidth="1" />
-                <path d="M5,100 L25,100" stroke="currentColor" strokeWidth="1" />
-                <path d="M175,100 L195,100" stroke="currentColor" strokeWidth="1" />
-              </svg>
-            </div>
-
-            <div className="w-96 h-96 border border-[#5CA042] rounded-full flex items-center justify-center bg-white/30 backdrop-blur-[1px] relative z-10">
-              <h2 className="text-3xl md:text-4xl font-serif font-light tracking-wider text-[#5CA042]">
+            <div className="w-96 h-96 border border-gray-300 rounded-full flex items-center justify-center">
+              <h2 className="text-3xl md:text-4xl font-serif font-light tracking-wider">
                 お部屋
               </h2>
             </div>

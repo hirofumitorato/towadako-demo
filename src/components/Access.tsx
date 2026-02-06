@@ -34,22 +34,8 @@ export default function Access() {
           className="text-center mb-12"
         >
           <div className="inline-block relative">
-            {/* Decoration: Organic Flow/Leaves */}
-            <div className="absolute -inset-12 pointer-events-none opacity-40">
-              <svg viewBox="0 0 200 200" className="w-full h-full text-[#5CA042] animate-pulse-slow">
-                <path fill="none" stroke="currentColor" strokeWidth="1" d="M100,0 Q130,20 150,50 T180,100 T150,150 T100,180 T50,150 T20,100 T50,50 T100,0" strokeDasharray="4 4" />
-                {/* Simulated Leaves/Water flow */}
-                <path d="M40,40 Q60,10 90,30" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M160,40 Q140,10 110,30" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M40,160 Q60,190 90,170" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M160,160 Q140,190 110,170" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="20" cy="100" r="2" fill="currentColor" />
-                <circle cx="180" cy="100" r="2" fill="currentColor" />
-              </svg>
-            </div>
-
-            <div className="w-96 h-96 border border-[#5CA042] rounded-full flex items-center justify-center bg-white/40 backdrop-blur-[1px] relative z-10">
-              <h2 className="text-3xl md:text-4xl font-serif font-light tracking-wider text-[#5CA042]">
+            <div className="w-96 h-96 border border-gray-300 rounded-full flex items-center justify-center">
+              <h2 className="text-3xl md:text-4xl font-serif font-light tracking-wider">
                 アクセス
               </h2>
             </div>
