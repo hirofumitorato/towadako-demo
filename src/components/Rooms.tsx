@@ -66,7 +66,7 @@ export default function Rooms() {
                 <div className="relative aspect-[16/9] w-full overflow-hidden">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: "url('/images/rooms/exterior_cropped.png')" }}
+                    style={{ backgroundImage: "url('/images/rooms/exterior_final.png')" }}
                   />
                   <div className="absolute inset-0 bg-black/5 transition-opacity duration-300 group-hover:opacity-0" />
                 </div>

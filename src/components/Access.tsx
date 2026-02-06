@@ -79,7 +79,7 @@ export default function Access() {
 
 
           <Link href="/access" className="inline-block mt-10 px-12 py-4 border border-[#5CA042] text-[#5CA042] text-lg tracking-widest hover:bg-[#5CA042] hover:text-white transition-all duration-300 rounded-sm font-light bg-white">
-            詳細
+            詳しく見る
           </Link>
         </motion.div>
       </div>
