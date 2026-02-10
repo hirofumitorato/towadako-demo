@@ -4,38 +4,30 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-const infoItems = [
+type InfoItem = {
+  label: string;
+  value?: string;
+  description?: string;
+  subDescription?: string;
+  detail?: boolean;
+};
+
+const infoItems: InfoItem[] = [
   {
     label: "総客室数",
-    value: "49室",
+    value: "26室",
   },
   {
     label: "客室定員",
     value: "1~4名",
   },
   {
-    label: "レストラン",
-    value: "1",
-    detail: true,
-  },
-  {
-    label: "カフェ/ラウンジ",
-    value: "2",
-    detail: true,
-  },
-  {
-    label: "スパ/マッサージ",
-    value: "1",
-    detail: true,
-  },
-  {
     label: "温泉",
-    value: "3",
-    detail: true,
+    value: "1",
   },
   {
     label: "チェックイン/アウト",
-    value: "3:00 PM / 12:00 PM",
+    value: "15:00 / 10:00",
   },
   {
     label: "Wi-Fi",
@@ -48,12 +40,6 @@ const infoItems = [
   {
     label: "ペット受け入れ",
     description: "可 → 2室限定",
-    subDescription: "中型犬 (20kg以下) 2頭まで",
-  },
-  {
-    label: "記念日・お祝い",
-    description: "界のお祝い箱",
-    subDescription: "(要予約・前日4:00PMまで)",
   },
   {
     label: "送迎",
@@ -64,17 +50,8 @@ const infoItems = [
     description: "あり (予約不要・無料)",
   },
   {
-    label: "EV充電",
-    value: "なし",
-  },
-  {
-    label: "事前払い",
-    description: "Visa、Mastercard、American Express、Diners Club、JCB、ペイディ、永久不滅ポイント、星野リゾート宿泊ギフト券",
-    subDescription: "→分割、後払い (コンビニ/銀行)",
-  },
-  {
     label: "現地払い",
-    description: "現金、クレジットカード",
+    description: "現金、各種クレジットカード、交通系、QRコード決済",
   },
 ];
 
@@ -111,36 +88,41 @@ export default function BasicInfo() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="bg-white p-8 rounded-sm border-b border-gray-200 hover:border-brand-green transition-colors duration-300"
+              className="bg-white p-8 rounded-sm border-b border-gray-200 hover:border-brand-green transition-colors duration-300 h-full flex flex-col"
             >
               {/* Label */}
               <h3 className="text-sm font-light text-gray-600 mb-4 tracking-wider uppercase">
                 {item.label}
               </h3>
-              
+
               {/* Divider */}
               <div className="w-12 h-[1px] bg-gray-300 mb-6" />
-              
+
               {/* Value or Description */}
-              {item.value && (
-                <p className="text-xl font-serif font-light text-gray-800 mb-4">
-                  {item.value}
-                </p>
-              )}
-              {item.description && (
-                <p className="text-sm text-gray-700 font-light leading-relaxed mb-2">
-                  {item.description}
-                </p>
-              )}
-              {item.subDescription && (
-                <p className="text-xs text-gray-500 font-light mt-2 leading-relaxed">
-                  {item.subDescription}
-                </p>
-              )}
+              <div className="flex-grow">
+                {item.value && (
+                  <p className="text-xl font-serif font-light text-gray-800 mb-4">
+                    {item.value}
+                  </p>
+                )}
+                {item.description && (
+                  <p className="text-xl font-serif font-light text-gray-800 mb-4 leading-relaxed">
+                    {item.description}
+                  </p>
+                )}
+                {item.subDescription && (
+                  <p className="text-xs text-gray-500 font-light mt-2 leading-relaxed">
+                    {item.subDescription}
+                  </p>
+                )}
+              </div>
+
               {item.detail && (
-                <button className="mt-6 text-xs text-brand-green border border-brand-green px-4 py-2 rounded-sm hover:bg-brand-green hover:text-white transition-colors duration-300 font-light tracking-wider">
-                  詳細
-                </button>
+                <div className="mt-auto pt-6">
+                  <button className="text-xs text-brand-green border border-brand-green px-4 py-2 rounded-sm hover:bg-brand-green hover:text-white transition-colors duration-300 font-light tracking-wider">
+                    詳細
+                  </button>
+                </div>
               )}
             </motion.div>
           ))}
